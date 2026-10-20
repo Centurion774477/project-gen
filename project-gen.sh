@@ -1,8 +1,15 @@
 #!/bin/sh
 
-mkdir src
+# Don't just dump all the files/directories into the current directory.
+# guard against no root being provided; prints usage in that case
+root="${1:?Usage: $0 <root-dir>}"
 
-mkdir assets/sound
-mkdir assets/graphics
+mkdir -p "$root"
 
-touch README.md, LICENSE, .gitignore
+mkdir -p "$root/src"
+
+mkdir -p "$root/assets/sound" "$root/assets/graphics"
+
+touch "$root/README.md" "$root/LICENSE" "$root/.gitignore"
+
+echo "Finished generating your project inside $root."
