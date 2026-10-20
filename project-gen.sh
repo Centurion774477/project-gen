@@ -4,7 +4,8 @@
 # guard against no root being provided; prints usage in that case
 root="${1:?Usage: $0 <root-dir>}"
 
-mkdir -p "$root"
+mkdir -p assets/sound
+mkdir -p assets/graphics
 
 mkdir -p "$root/src"
 
